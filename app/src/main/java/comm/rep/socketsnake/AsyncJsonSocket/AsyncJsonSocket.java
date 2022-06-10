@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
@@ -273,9 +274,13 @@ public class AsyncJsonSocket {
       }
     } catch (SocketTimeoutException ex) {
       //read timeout is ok
+    } catch (SocketException ex) {
+      if (this.socket == null || this.socket.isClosed()) {
+        this.ensureDisconnected();
+      }
     } catch (EOFException ex) {
       this.onError(ex);
-      this.disconnect();
+      this.ensureDisconnected();
       
     } catch (IOException e) {
       this.onError(e);
