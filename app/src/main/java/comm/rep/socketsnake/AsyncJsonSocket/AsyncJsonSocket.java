@@ -171,6 +171,7 @@ public class AsyncJsonSocket {
       this.onError(e);
 //      e.printStackTrace();
       this.state = AsyncJsonSocketConnectionState.CONNECT_DESIRED;
+      return;
     }
     
     this.state = AsyncJsonSocketConnectionState.CONNECTED;

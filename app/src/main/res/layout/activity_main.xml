@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/labelPort"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Port"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/labelIp"
+        app:layout_constraintTop_toBottomOf="@+id/bridgeSwitch" />
+
     <Switch
         android:id="@+id/bridgeSwitch"
         android:layout_width="0dp"
@@ -20,4 +31,45 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputPort"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:numeric="integer"
+        android:singleLine="true"
+        android:text="10209"
+        android:textAlignment="center"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/inputIp"
+        app:layout_constraintTop_toBottomOf="@+id/labelPort" />
+
+    <EditText
+        android:id="@+id/inputIp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        android:text="localhost"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/inputPort"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelIp" />
+
+    <TextView
+        android:id="@+id/labelIp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Host / IP"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/labelPort"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bridgeSwitch" />
 </androidx.constraintlayout.widget.ConstraintLayout>
